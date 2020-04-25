@@ -1,0 +1,26 @@
+cd to project folder
+cd ../Java8Practice/
+
+Set username and email id for git. These are global variable for git bash utility
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+git config --global user.email "deepaknaithani88@gmail.com"
+git config --global user.name "deepaknaithani88"
+
+Set .git folder in root of project directory
+git init
+
+add current folder to remote path
+git remote add <name> <url>
+git remote add java8practice https://github.com/deepaknaithani88/java8practice.git
+
+add files to be committed
+git add .
+
+commit files which are addded
+git commit --message="Lambda first commit"
+
+Push changes to upstream
+git push --set-upstream java8practice master
+
