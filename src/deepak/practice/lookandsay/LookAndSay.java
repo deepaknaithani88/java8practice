@@ -1,4 +1,4 @@
-package com.deepak.lookandsay;
+package deepak.practice.lookandsay;
 
 public class LookAndSay {
 
