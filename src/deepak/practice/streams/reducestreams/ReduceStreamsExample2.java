@@ -37,6 +37,5 @@ public class ReduceStreamsExample2 {
 		if (optional.isPresent()) {
 			System.out.println(optional.get());
 		}
-
 	}
 }
