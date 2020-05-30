@@ -24,12 +24,17 @@ public class CollectorsExample {
 						"/deepak/practice/streams/reducestreams/collectorsinstream/people.txt")));
 				Stream<String> stream = reader.lines();) {
 			System.out.println(stream.map(line -> {
-				String[] s = line.split(" ");
+				String[] s = line.split(",");
 				Person p = new Person(s[0].trim(), Integer.parseInt(s[1]));
+				p.setField1(Integer.parseInt(s[2]));
+				p.setField2(Integer.parseInt(s[3]));
+				p.setField3(Integer.parseInt(s[4]));
+				p.setField4(Integer.parseInt(s[5]));
 				persons.add(p);
 				return p;
 			}).count());
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		System.out.println("\nSecond Stream:::");
@@ -67,11 +72,20 @@ public class CollectorsExample {
 				.collect(Collectors.groupingBy(Person::getAge, Collectors
 						.mapping(Person::getName, Collectors.joining(" "))));
 
+		Map<Integer, Integer> map6 = persons.stream()
+				.collect(Collectors.groupingBy(Person::getAge,
+						Collectors.summingInt(Person::getAge)));
+
+		Map<Integer, List<Person>> map7 = persons.stream()
+				.collect(Collectors.groupingBy(Person::getKeys));
+
 		System.out.println(map1 + "\n");
 		System.out.println(map2 + "\n");
 		System.out.println(map3 + "\n");
 		System.out.println(map4 + "\n");
 		System.out.println(map5 + "\n");
+		System.out.println(map6 + "\n");
+		System.out.println(map7 + "\n");
 
 	}
 
