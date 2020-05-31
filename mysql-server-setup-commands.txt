@@ -35,5 +35,16 @@ Check for all the variables and settings available for mysqladmin
 
 Default options are read from the following files in the given order:
 C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf E:\Softwares\mysql\mysql-5.7.30-win32\my.ini E:\Softwares\mysql\mysql-5.7.30-win32\my.cnf
+https://dev.mysql.com/doc/refman/8.0/en/option-files.html <options to use in ini file>
+
+
+Global and session variables:
+https://dev.mysql.com/doc/refman/8.0/en/show-variables.html
+
+Seeing variables from mysql session
+SHOW VARIABLES;
+SHOW VARIABLES LIKE 'autocommit';
+
+
 
 
