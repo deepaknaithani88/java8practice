@@ -27,6 +27,7 @@ https://dev.mysql.com/doc/refman/8.0/en/default-privileges.html
 Check for all the variables and settings available for mysqld
     .\mysqld.exe --verbose --help
         mysqld --variable-name=value <sample command to set the variable>
+        mysqld --autocommit=0
 Check for all the variables and settings available for mysqladmin
     mysqladmin --verbose --help
         mysqladmin --variable-name=value <sample command to set the variable>
