@@ -45,6 +45,3 @@ Seeing variables from mysql session
 SHOW VARIABLES;
 SHOW VARIABLES LIKE 'autocommit';
 
-
-
-
