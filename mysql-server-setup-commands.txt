@@ -1,0 +1,38 @@
+Download mysql installer/zip file
+goto:
+    https://dev.mysql.com/doc/refman/8.0/en/getting-mysql.html
+    https://dev.mysql.com/downloads/
+then download: mysql community server (choose whichever version you want to install)
+then install using installer
+
+Manual Installation:
+If you have downloaded binaries then you will have manually run commands to install mysql server
+
+https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/windows-install-archive.html
+1. unzip downloaded archive file
+
+2. First created data and base directory
+    https://dev.mysql.com/doc/refman/8.0/en/data-directory-initialization.html
+        mysqld --initialize-insecure    <for insecure installation>
+        mysqld --initialize             <for secure installation>
+3. Then execute install command to install mysqld service in Windows
+    mysqld --install
+
+4. Multiple ways to set root password if you haven't set ones
+https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html
+https://dev.mysql.com/doc/refman/8.0/en/default-privileges.html
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+
+
+Check for all the variables and settings available for mysqld
+    .\mysqld.exe --verbose --help
+        mysqld --variable-name=value <sample command to set the variable>
+Check for all the variables and settings available for mysqladmin
+    mysqladmin --verbose --help
+        mysqladmin --variable-name=value <sample command to set the variable>
+
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf E:\Softwares\mysql\mysql-5.7.30-win32\my.ini E:\Softwares\mysql\mysql-5.7.30-win32\my.cnf
+
+
