@@ -52,7 +52,9 @@ public class CreditCardValidation {
 				evenNumberMultiplier *= numberMultiplier;
 				oddNumberMultiplier *= numberMultiplier;
 			}
-
+			if ((oddSummedNumber + evenSummedNumber) % 10 != 0) {
+				continue;
+			}
 			System.out.println("Card Number: " + cardNumber
 			// + "; Card Length: " + cardLength
 					+ "; Card Validity: " + (oddSummedNumber + evenSummedNumber)
@@ -62,8 +64,8 @@ public class CreditCardValidation {
 					+ "; Final Last Number: "
 					+ getCardFirst2Digits(lastNumber, evenLastNumber,
 							oddLastNumber)
-					+ "; Card Name: "
-					+ getCardName(lastNumber, evenLastNumber, oddLastNumber));
+					+ "; Card Name: " + getCardName(lastNumber, evenLastNumber,
+							oddLastNumber, cardLength));
 
 		}
 	}
@@ -81,7 +83,7 @@ public class CreditCardValidation {
 	}
 
 	public static String getCardName(long lastNumber, long evenLastNumber,
-			long oddLastNumber) {
+			long oddLastNumber, long cardLength) {
 		if (lastNumber == evenLastNumber && lastNumber == oddLastNumber) {
 			lastNumber = (evenLastNumber * 10) + oddLastNumber;
 		} else if (lastNumber == evenLastNumber) {
@@ -94,7 +96,8 @@ public class CreditCardValidation {
 		} else if (lastNumber == 51 || lastNumber == 52 || lastNumber == 53
 				|| lastNumber == 54 || lastNumber == 55) {
 			return "MASTERCARD";
-		} else if (((lastNumber % 100) - (lastNumber % 10)) / 10 == 4) {
+		} else if (((lastNumber % 100) - (lastNumber % 10)) / 10 == 4
+				&& cardLength >= 13) {
 			return "VISA";
 		}
 		return "INVALID";
@@ -119,6 +122,8 @@ public class CreditCardValidation {
 		cards.add(4111111111111111l);
 		cards.add(4012888888881881l);
 		cards.add(4222222222222l);
+		cards.add(371449635398431l);
+		cards.add(4062901840l);
 		return cards;
 	}
 
